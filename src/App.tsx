@@ -4,7 +4,7 @@ import { changeColorAction } from './state/slices/changeColor';
 import './App.css';
 
 const App = () => {
-  const { color } = useSelector((state: any) => state.color);
+  const { color, colors } = useSelector((state: any) => state.color);
   const dispatchAction = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const App = () => {
         className='colorButton'
         onClick={() => dispatchAction(changeColorAction())}
       >
-        Click me to toggle 5 colors
+        Click me to toggle {colors.length} color{colors.length !== 1 && 's'}
       </button>
     </div>
   );
